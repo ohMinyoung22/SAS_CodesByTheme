@@ -52,7 +52,7 @@ PROC SQL;
 	FROM DATA;
 QUIT;
 	
-/* 결측치 처리 */
+/* 결측치 처리, Column 이름 공백 처리 */
 DATA EXAMPLE;
 INPUT Name & $24. Age TicketCode$;
 CARDS;
@@ -68,7 +68,6 @@ PROC SQL;
 	SELECT Name LABEL = "$", COALESCE(Age, 10) as Age
 	FROM EXAMPLE;
 QUIT;
-/* 이름 없애기 */
 
 
 
